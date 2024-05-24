@@ -2,61 +2,61 @@
     "1": {
         "title": "www vs non-www URL causing site not to login",
         "text": "not found",
-        "author": "not found",
+        "author": "uReside.com",
         "published": "not found"
     },
     "2": {
         "title": "not found",
         "text": "not found",
-        "author": "not found",
+        "author": "Zachery",
         "published": "not found"
     },
     "3": {
         "title": "not found",
         "text": "not found",
-        "author": "not found",
+        "author": "Merjawy",
         "published": "not found"
     },
     "4": {
         "title": "not found",
         "text": "not found",
-        "author": "not found",
+        "author": "uReside.com",
         "published": "not found"
     },
     "5": {
         "title": "not found",
         "text": "not found",
-        "author": "not found",
+        "author": "Merjawy",
         "published": "not found"
     },
     "6": {
         "title": "not found",
         "text": "not found",
-        "author": "not found",
+        "author": "uReside.com",
         "published": "not found"
     },
     "7": {
         "title": "not found",
         "text": "not found",
-        "author": "not found",
+        "author": "Merjawy",
         "published": "not found"
     },
     "8": {
         "title": "not found",
         "text": "not found",
-        "author": "not found",
+        "author": "Matthew Gordon",
         "published": "not found"
     },
     "9": {
         "title": "not found",
         "text": "not found",
-        "author": "not found",
+        "author": "uReside.com",
         "published": "not found"
     },
     "10": {
         "title": "not found",
         "text": "not found",
-        "author": "not found",
+        "author": "wave-rice",
         "published": "not found"
     }
 }

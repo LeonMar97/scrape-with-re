@@ -14,7 +14,7 @@ class Vbulletin(BaseScraper):
         posts = re.findall(post_pat, content, re.DOTALL)
 
         title_ptn = r'<h2 class="b-post__title .*?>(.*?)</h2>'
-        author_ptn = r'<a.*?class="username.*?">(.*?)</a>'
+        author_ptn = r'<span itemprop="name">(.*?)</span>'
         date_ptn = r'<time datetime="([^"]*)">'
         content_ptn = r'<div class="content">((?:<(?!div\b|/div\b)[^>]*>|<div[^>]*>.*?</div>|.)*?)</div>'
 
