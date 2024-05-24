@@ -2,12 +2,14 @@ import re
 from scrape_webz.data.Post import Post
 from scrape_webz.scrapers.scraper_base import BaseScraper
 
-class PhpbbScraper(BaseScraper):
+class Vbulletin(BaseScraper):
     '''should hold the url of file'''
     def parse_content(self, content):
         content = content.replace('<br>', '')
 
-        post_pat = r'<div id="p\d+" class="post has-profile bg\d">(.*?)(?=<div id="sig\d+" class="signature">)'
+        # post_pat = r'<li data-node-id="\d+">(.*?)(?=<div class="post-signature|<li data-node-id=|</ul>)'
+        post_pat = r'<li data-node-id="\d+" .*?>(.*?)(?=<div class="post-signature.*?|<li data-node-id=.*?|</ul>)'
+
         #there might not be a signature, maybe should fix it
         posts = re.findall(post_pat, content, re.DOTALL)
 
