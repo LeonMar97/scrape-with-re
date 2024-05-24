@@ -7,23 +7,17 @@
     },
     "2": {
         "title": "Re: How to create Tags / Categories for different Topics",
-        "text": "Not sure what you mean, can you explain a bit more please?",
-        "author": "Mick",
-        "published": "2012-07-19T06:48:08+00:00"
-    },
-    "3": {
-        "title": "Re: How to create Tags / Categories for different Topics",
         "text": "Just like categories in Wordpress blog.\n\nBoard\n--Forum\n----Topic 1 about Cat\n----Topic 2 about Rat\n----Topic 3 about Cat\n----Topic 4 about Rat\n----Topic 5 about Tiger\n\nFew buttons near footer: CAT, RAT, TIGER\n\nUsers when click 'RAT' then he /she may view:\n\nBoard\n--Forum\n----Topic 2 about Rat\n----Topic 4 about Rat",
         "author": "wbxpress",
         "published": "2012-07-19T07:01:47+00:00"
     },
-    "4": {
+    "3": {
         "title": "Re: How to create Tags / Categories for different Topics",
         "text": "Can anyone help me please. ",
         "author": "wbxpress",
         "published": "2012-07-19T13:47:49+00:00"
     },
-    "5": {
+    "4": {
         "title": "Re: How to create Tags / Categories for different Topics",
         "text": "wbxpress wrote:Can anyone help me please. \nthis is not something that phpbb does. it does not have \"tags\"  like a blog does.\n\nyou would have to try to find someone to write up a MOD for something like this.\n\ntry the MOD release forum and/or the MOD request forum here.\n\nrobert",
         "author": "Lumpy Burgertushie",

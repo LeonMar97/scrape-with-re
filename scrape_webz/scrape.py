@@ -24,10 +24,10 @@ def format_phpb_web_site(p):
     date = re.search(date_ptn, p, re.DOTALL).group(1)
     content = re.search(content_ptn, p, re.DOTALL)
     content=re.sub(r'<[^>]*>', '', content.group(1))
-    print(content)
+    # print(content)
     return Post(title, content, author, date).__dict__
 
-numbered_posts = {i+1: format_phpb_web_site(post) for i, post in enumerate(posts)}
+numbered_posts = {i+1:format_phpb_web_site(post) for i,post in enumerate(posts)}
 
-with open('phpb_web.txt','w',encoding="utf-8") as f:
+with open('phpb_web.txt','w',encoding='utf-8') as f:
     json.dump(numbered_posts,f,indent=4)
