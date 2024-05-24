@@ -10,22 +10,26 @@ This project is a web scraping tool that extracts data from two different forum 
 ## Project Structure
 Project Structure
 scrape-with-re/
+
 ├── scrape_webz/
-├── data/
-│   ├── __init__.py
-│   └── post.py
-│   ├── scrapers/
-│   │   ├── __init__.py
-│   │   ├── phpbb_scraper.py
-│   │   ├── scraper_base.py
-│   │   └── vbulletin_scraper.py
-│   └── utils/
-│       ├── __init__.py
-│       ├── file_utils.py
-│       └── text_utils.py
-├── main.py
-├── README.md
-└── requirements.txt
+
+    ├── data/
+    ├── __init__.py
+    └── post.py
+
+    ├── scrapers/
+
+    │   ├── __init__.py
+    │   ├── phpbb_scraper.py
+    │   ├── scraper_base.py
+    │   └── vbulletin_scraper.py
+
+    └── utils/
+       ├── __init__.py
+       ├── file_utils.py
+       └── text_utils.py
+ ── main.py
+ ── README.md
 
 - `data/`: Contains the `Post` class definition for representing forum posts.
 - `scrape_webz/scrapers/`: Includes the base scraper class (`scraper_base.py`) and the specific scraper implementations for phpBB (`phpbb_scraper.py`) and vBulletin (`vbulletin_scraper.py`) forums.
