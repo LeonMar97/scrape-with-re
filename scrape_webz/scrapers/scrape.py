@@ -1,7 +1,10 @@
 import re
 import requests
+from scrape_webz.data.Post import Post
+from scrape_webz.utils.file_utils import save_to_json
+# from post.Post import Post
 res=requests.get('https://www.phpbb.com/community/viewtopic.php?f=46&t=2159437')
-con=res.text.replace('<br>','')
+con=res.text
 
 post_pat = r'<div id="p\d+"$>(.*?)</div>'
 post_pat = r'<div id="p\d+" class="post has-profile bg\d">(.*?)(?=<div id="sig\d+" class="signature">)'
@@ -15,18 +18,17 @@ author_ptn = r'<a.*?class="username.*?">(.*?)</a>'
 date_ptn = r'<time datetime="([^"]*)">'
 content_ptn = r'<div class="content">((?:<(?!div\b|/div\b)[^>]*>|<div[^>]*>.*?</div>|.)*?)</div>'
 
-i=1
-for p in posts:
-    print(f'---------------{i}------------------')
-    title = re.search(title_ptn, p, re.DOTALL)
-    print(f'title={title.group(1)}\n')
-    author = re.search(author_ptn, p, re.DOTALL)
-    print(f'author={author.group(1)}\n')
-    date = re.search(date_ptn, p, re.DOTALL)
-    print(f'date={date.group(1)}\n')
+
+def format_phpb_web_site(p):
+    title = re.search(title_ptn, p, re.DOTALL).group(1)
+    author = re.search(author_ptn, p, re.DOTALL).group(1)
+    date = re.search(date_ptn, p, re.DOTALL).group(1)
     content = re.search(content_ptn, p, re.DOTALL)
-    # print(f'content={content.group(1)}\n')
-    print(re.sub(r'<[^>]*>', '', "content="+content.group(1)))
-    print("----------------------------------")
-    print("\n")
-    i+=1
+    content=re.sub(r'<[^>]*>', '', content.group(1))
+    return Post(title, content, author, date).__dict__
+
+numbered_posts = {i+1:format_phpb_web_site(post) for i,post in enumerate(posts)}
+
+
+if(save_to_json('phpb_web.txt',numbered_posts)):
+    print('file created successfully')

@@ -1,4 +1,4 @@
 install:poetry.lock pyproject.toml
 	poetry install
 run:
-	poetry run python scrape_webz/scrape.py
+	poetry run python scrape_webz\scrapers\scrape.py
