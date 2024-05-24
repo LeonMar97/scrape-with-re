@@ -7,8 +7,8 @@ class PhpbbScraper(BaseScraper):
     def parse_content(self, content):
         content = content.replace('<br>', '')
 
-        post_pat = r'<div id="p\d+" class="post has-profile bg\d">(.*?)(?=<div id="sig\d+" class="signature">)'
-        #there might not be a signature, maybe should fix it
+        post_pat = r'<div id="p\d+" class="post has-profile bg\d">(.*?)(?=<div id="sig\d+" class="signature">|<div class="action-bar.*?>|<div id="p\d+".*?)'
+        #capture incase user doesnt have signature, as well.
         posts = re.findall(post_pat, content, re.DOTALL)
 
         title_ptn = r'<div id="post_content\d+">.*?<a href="[^"]*">(.*?)</a>'
@@ -17,11 +17,11 @@ class PhpbbScraper(BaseScraper):
         content_ptn = r'<div class="content">((?:<(?!div\b|/div\b)[^>]*>|<div[^>]*>.*?</div>|.)*?)</div>'
 
         def format_post(post)->dict:
-            '''return the formated post as json'''
-            title = re.search(title_ptn, post, re.DOTALL).group(1)
-            author = re.search(author_ptn, post, re.DOTALL).group(1)
-            date = re.search(date_ptn, post, re.DOTALL).group(1)
-            content = re.search(content_ptn, post, re.DOTALL).group(1)
+            '''return the formated post as json, !!!!!!they are getting stripped in the found_or_non'''
+            title=self.found_or_none(title_ptn,post)
+            author = self.found_or_none(author_ptn, post)
+            date = self.found_or_none(date_ptn, post)
+            content = self.found_or_none(content_ptn, post)
             content = re.sub(r'<[^>]*>', '', content)
             return Post(title, content, author, date).__dict__
 

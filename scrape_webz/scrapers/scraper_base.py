@@ -1,3 +1,4 @@
+import re
 class BaseScraper:
     def __init__(self, url):
         self.url = url
@@ -15,3 +16,7 @@ class BaseScraper:
     def scrape(self):
         content = self.fetch_content()
         return self.parse_content(content)
+
+    def found_or_none(self,pattern,post):
+        cur=re.search(pattern, post, re.DOTALL)
+        return cur.group(1).strip() if cur else "not found"
