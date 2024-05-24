@@ -5,7 +5,7 @@ from scrape_webz.scrapers.scraper_base import BaseScraper
 class Vbulletin(BaseScraper):
     '''should hold the url of file'''
     def parse_content(self, content):
-        # content = content.replace('<br>', '')
+        content = content.replace('<br>', '')
         # content = content.replace('\t', '')
         # content = content.replace('\r', '')
 
@@ -15,7 +15,9 @@ class Vbulletin(BaseScraper):
 
         title_ptn = r'<h2 class="b-post__title .*?>(.*?)</h2>'
         author_ptn = r'<span itemprop="name">(.*?)</span>'
-        date_ptn = r'<time datetime="([^"]*)">'
+        # date_ptn = r'<time itemprop="dateCreated" datetime="([^"]*)">'
+        # date_ptn = r'<time itemprop="dateCreated" datetime="(.*?)">'
+        date_ptn= r'<div class="b-post__timestamp"><time itemprop="dateCreated" datetime=\'(.*?)\'>'
         content_ptn = r'<div class="content">((?:<(?!div\b|/div\b)[^>]*>|<div[^>]*>.*?</div>|.)*?)</div>'
 
         def format_post(post)->dict:
