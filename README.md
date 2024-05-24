@@ -80,3 +80,8 @@ make lint
 ```bash
 make lint-fix
 ```
+# Notes
+if it doesnt find scrapped data, it sets it as 'not found'.
+
+# creator 
+<b>Leon Markovich </b>
