@@ -1,9 +1,10 @@
-import json
 import re
 import requests
-from post.Post import Post
+from scrape_webz.data.Post import Post
+from scrape_webz.utils.file_utils import save_to_json
+# from post.Post import Post
 res=requests.get('https://www.phpbb.com/community/viewtopic.php?f=46&t=2159437')
-con=res.text.replace('<br>','')
+con=res.text
 
 post_pat = r'<div id="p\d+"$>(.*?)</div>'
 post_pat = r'<div id="p\d+" class="post has-profile bg\d">(.*?)(?=<div id="sig\d+" class="signature">)'
@@ -24,10 +25,10 @@ def format_phpb_web_site(p):
     date = re.search(date_ptn, p, re.DOTALL).group(1)
     content = re.search(content_ptn, p, re.DOTALL)
     content=re.sub(r'<[^>]*>', '', content.group(1))
-    # print(content)
     return Post(title, content, author, date).__dict__
 
 numbered_posts = {i+1:format_phpb_web_site(post) for i,post in enumerate(posts)}
 
-with open('phpb_web.txt','w',encoding='utf-8') as f:
-    json.dump(numbered_posts,f,indent=4)
+
+if(save_to_json('phpb_web.txt',numbered_posts)):
+    print('file created successfully')
