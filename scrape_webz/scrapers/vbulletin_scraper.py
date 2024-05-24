@@ -7,10 +7,8 @@ class Vbulletin(BaseScraper):
     def parse_content(self, content):
         content = content.replace('<br>', '')
 
-        # post_pat = r'<li data-node-id="\d+">(.*?)(?=<div class="post-signature|<li data-node-id=|</ul>)'
-        post_pat = r'<li data-node-id="\d+" .*?>(.*?)(?=<div class="post-signature.*?|<li data-node-id=.*?|</ul>)'
-
-        #there might not be a signature, maybe should fix it
+        post_pat = r'<li data-node-id="\d+" .*?>(.*?)(?=<div class="post-signature.*?|<li data-node-id=.*?|<class="pagenav-container.*?>)'
+        #excluded eaither the signature, or the nav if we are at the end, or the next li if there isnt a signature
         posts = re.findall(post_pat, content, re.DOTALL)
 
         title_ptn = r'<div id="post_content\d+">.*?<a href="[^"]*">(.*?)</a>'
