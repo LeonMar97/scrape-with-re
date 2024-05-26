@@ -45,14 +45,6 @@ scrape-with-re/
 1. Clone the repository or download the source code.
 2. Install Poetry by following the instructions on the [Poetry documentation](https://python-poetry.org/docs/#installation).
 3. Run the following command to install the project dependencies:
-
-
-
-## Setup
-
-1. Clone the repository or download the source code.
-2. Install Poetry by following the instructions on the [Poetry documentation](https://python-poetry.org/docs/#installation).
-3. Run the following command to install the project dependencies:
 ```bash
 make install
 ```
@@ -62,7 +54,7 @@ Run the following command to start the scraping process:
 ```bash
 make run
 ```
-    The scraped data will be saved as JSON files in the project directory, with filenames `phpbb_web.txt` and `vbulletin_web.txt`.
+The scraped data will be saved as JSON files in the project directory, with filenames `phpbb_web.txt` and `vbulletin_web.txt`.
 
 ## Code Formatting and Linting
 
